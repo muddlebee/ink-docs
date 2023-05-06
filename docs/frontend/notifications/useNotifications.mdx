@@ -1,0 +1,34 @@
+---
+title: useNotifications
+description: A hook containing tools to add, remove, and fetch transient notification state.
+---
+
+# useNotifications
+
+description: A hook containing tools to add, remove, and fetch transient notification state.
+
+```ts
+import { useNotifications } from 'useink/notifications'
+
+export const MyNotifications = ({ children }) => {
+  const { notifications, addNotification } = useNotifications()
+
+  return (
+    <div>
+      <button
+        onClick={() => {
+          addNotification({ message: 'hello from the ink! team 🦑', type: 'None' })
+        }}
+      >
+        Say hello
+      </button>
+
+      <ul>
+        {notifications.map((n) => (
+          <li key={n.id}>{n.message}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+```
